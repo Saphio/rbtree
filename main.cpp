@@ -47,7 +47,7 @@ int main () {
 }
 
 void insert (Node* &root, int n) {
-
+  
   return;
 }
 
@@ -71,7 +71,12 @@ void read (Node* &root) {
   return;
 }
 
-void print (Node* root) {
-
+void print (Node* root, int indent) {
+  if (cur == NULL) { return; }
+  print (cur->getRight(), indent + 1);
+  for (int i = 0; i < indent; i++) { cout << "    "; }
+  if (cur->getValue() == 0) { cout << endl; }
+  else { cout << cur->getValue() << ", " << cur->getColor() << endl; }
+  print (cur->getLeft(), indent + 1);
   return;
 }
